@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/portfolio.css";
+import {
+  hero,
+  about,
+  values,
+  skills,
+  works,
+  collaboration,
+  contact,
+  site,
+} from "../data/siteContent";
+---
+
+<BaseLayout>
+  <div class="portfolio-main">
+
+    <!-- ─── Hero ─────────────────────────────── -->
+    <section class="hero" aria-label="ヒーロー">
+      <p class="hero__greeting">{hero.greeting} 👋</p>
+      <h1 class="hero__headline">{hero.headline}</h1>
+      <p class="hero__sub">{hero.subheadline}</p>
+      <div class="hero__actions">
+        <a href={hero.cta.primary.href} class="btn-primary">
+          {hero.cta.primary.label} →
+        </a>
+        <a href={hero.cta.secondary.href} class="btn-secondary">
+          {hero.cta.secondary.label}
+        </a>
+      </div>
+    </section>
+
+    <!-- ─── About ────────────────────────────── -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <span class="section-label">{about.sectionLabel}</span>
+      <h2 id="about-heading" class="section-heading">{about.heading}</h2>
+      <div class="about__body">
+        {about.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </section>
+
+    <!-- ─── Values ───────────────────────────── -->
+    <section class="section" aria-labelledby="values-heading">
+      <span class="section-label">{values.sectionLabel}</span>
+      <h2 id="values-heading" class="section-heading">{values.heading}</h2>
+      <div class="values-grid">
+        {
+          values.items.map((item) => (
+            <article class="value-card">
+              <div class="value-card__icon" aria-hidden="true">{item.icon}</div>
+              <h3 class="value-card__title">{item.title}</h3>
+              <p class="value-card__body">{item.body}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Skills tags -->
+      <div class="skills-groups" style="margin-top: 2.5rem;">
+        {
+          skills.groups.map((g) => (
+            <div>
+              <p class="skills-group__label">{g.label}</p>
+              <div class="skills-group__tags">
+                {g.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ─── Works ────────────────────────────── -->
+    <section id="works" class="section" aria-labelledby="works-heading">
+      <span class="section-label">{works.sectionLabel}</span>
+      <h2 id="works-heading" class="section-heading">{works.heading}</h2>
+      <div class="works-list">
+        {
+          works.items.map((work) => (
+            <article class="work-card">
+              <header class="work-card__header">
+                <h3 class="work-card__title">{work.title}</h3>
+                <span class="work-card__period">{work.period}</span>
+              </header>
+              <div class="work-card__tags">
+                {work.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+              <p class="work-card__desc">{work.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ─── Collaboration ────────────────────── -->
+    <section class="section" aria-labelledby="collab-heading">
+      <span class="section-label">{collaboration.sectionLabel}</span>
+      <h2 id="collab-heading" class="section-heading">{collaboration.heading}</h2>
+      <div class="steps-list">
+        {
+          collaboration.steps.map((step) => (
+            <article class="step-card">
+              <p class="step-card__num">{step.num}</p>
+              <h3 class="step-card__title">{step.title}</h3>
+              <p class="step-card__body">{step.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ─── Contact ──────────────────────────── -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <span class="section-label">{contact.sectionLabel}</span>
+      <div class="contact-inner">
+        <h2 id="contact-heading" class="section-heading">{contact.heading}</h2>
+        <p class="contact__body">{contact.body}</p>
+        <a href={site.social.github} class="btn-primary" target="_blank" rel="noreferrer">
+          {contact.ctaLabel}
+        </a>
+        <p class="contact__links">
+          <a href={site.social.github} target="_blank" rel="noreferrer">GitHub</a>
+          <span> / </span>
+          <a href={site.social.twitter} target="_blank" rel="noreferrer">X</a>
+        </p>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
