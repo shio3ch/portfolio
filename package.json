@@ -9,9 +9,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "cf:build": "astro build",
+    "cf:deploy": "wrangler pages deploy dist",
+    "cf:deploy:prod": "wrangler pages deploy dist --branch main"
   },
   "dependencies": {
     "astro": "^6.4.5"
+  },
+  "devDependencies": {
+    "wrangler": "^4.98.0"
   }
 }

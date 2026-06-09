@@ -4,7 +4,7 @@
 
 ## 現在の実装
 - フレームワーク: Astro
-- デプロイ想定: Cloudflare
+- デプロイ想定: Cloudflare Pages
 - デザイン方針: glasshopper 系の暖色 + ミントアクセント + 透明感のある UI
 - 構成: 1ページのポートフォリオ（Hero / About / Values & Skills / Works / How I Work / Contact）
 - ダークモード切り替えあり
@@ -26,9 +26,17 @@ pnpm install
 pnpm dev
 pnpm build
 pnpm preview
+pnpm cf:build
+pnpm cf:deploy
+pnpm cf:deploy:prod
 ```
 
+## Cloudflare Pages
+- `wrangler.toml` で `pages_build_output_dir = "dist"` を設定しています
+- プロジェクト名は `shio3ch-portfolio` を想定しています
+- 本番デプロイは `pnpm cf:deploy:prod` で実行できます
+
 ## 次の作業候補
-1. Cloudflare 向けのデプロイ設定を追加する
+1. Cloudflare Pages の本番 URL / カスタムドメインを設定する
 2. OGP / favicon / メタデータを整える
 3. 必要なら実績ページや詳細ページを増やす
