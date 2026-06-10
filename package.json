@@ -11,8 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "cf:build": "astro build",
-    "cf:deploy": "wrangler pages deploy dist",
-    "cf:deploy:prod": "wrangler pages deploy dist --branch main"
+    "cf:deploy": "wrangler deploy",
+    "cf:deploy:prod": "wrangler deploy"
   },
   "dependencies": {
     "astro": "^6.4.5"
